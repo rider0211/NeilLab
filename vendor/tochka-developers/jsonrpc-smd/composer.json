@@ -1,0 +1,22 @@
+{
+  "name": "tochka-developers/jsonrpc-smd",
+  "description": "JsonRpc SMD description",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pavel Babushkin",
+      "email": "darkdarin@tochka.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tochka\\JsonRpcSmd\\": "src/"
+    }
+  }
+}
