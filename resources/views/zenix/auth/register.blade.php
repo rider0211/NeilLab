@@ -24,6 +24,20 @@
                         <h4 class="text-center mb-4">{{__('locale.signup_page_title')}}</h4>
                         <form method="POST" action="{!! url('/register_new_user'); !!}">
                             @csrf
+                            <div class="row">
+                            <div class="col-xl-6">
+                                <div class="form-group">
+                                    <label class="mb-1"><strong>First Name</strong></label>
+                                    <input type="text" class="form-control" name="firstname" placeholder="{{ __('locale.firstname_paceholder') }}">
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="form-group">
+                                    <label class="mb-1"><strong>Last Name</strong></label>
+                                    <input type="text" class="form-control" name="lastname" placeholder="{{ __('locale.lastname_paceholder') }}">
+                                </div>
+                            </div>
+                            </div>
                             <div class="form-group">
                                 <label class="mb-1"><strong>Username</strong></label>
                                 <input type="text" class="form-control" name="username" placeholder="{{ __('locale.username_paceholder') }}">

@@ -63,6 +63,8 @@ class RegisterController extends Controller
         //dd($responseRecaptcha);
         // if($responseRecaptcha['success']==true && $responseRecaptcha['score']>= 0.6){
             $validate = \Validator::make($request->all(),[
+                'firstname'  => ['required', 'string', 'max:50'],
+                'lastname'  => ['required', 'string', 'max:50'],
                 'username'  => ['required', 'string', 'max:50'],
                 'email'     => ['required', 'string', 'email', 'max:50'],
                 'password'  => ['required', 'string', 'min:8'],
@@ -72,13 +74,20 @@ class RegisterController extends Controller
                 ->back()
                 ->withErrors($validate);
             }
-            $user_create = User::create([
-                'name'  => $request->username,
-                'email'     => $request->email,
-                'password'   => Hash::make($request->password),
-                'user_type' => 'none',
-                'state' => 0,
-            ]);
+            $result = User::where("email", $request->email)->get()->count();
+            if($result == 0){
+                $user_create = User::create([
+                    'first_name' => $request->firstname,
+                    'last_name' => $request->lastname,
+                    'username'  => $request->username,
+                    'email'     => $request->email,
+                    'password'   => Hash::make($request->password),
+                    'user_type' => 'none',
+                    'state' => 0,
+                ]);
+            }else{
+                return redirect('/register')->with('error', 'This email is already existed.');
+            }
             return redirect('/register')->with('success', 'Successfully registered');
         // }else{
             // return redirect()->route('register')->with('error','ReCaptcha Error');

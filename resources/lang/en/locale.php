@@ -5,6 +5,8 @@ return[
     "email_paceholder"              =>  "Input your email",
     "password_paceholder"           =>  "Include at least 8 characters",
     "username_paceholder"           =>  "Inout your username",
+    "firstname_paceholder"           =>  "Inout your First Name",
+    "lastname_paceholder"           =>  "Inout your Last Name",
     "login_page_title"              =>  "Sign in your account",
     "wrong_email_and_password"      =>  "Incorrect Email or Password",
     "admindashboard"                =>  "Admin Dashbaord",
